@@ -1,14 +1,17 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import HeaderView from "@/components/common/Header.vue";
+import AsideView from "@/components/common/AsideView.vue";
 
 </script>
 
 <template>
+    <div class="flex">
+        <AsideView class="w-[260px] py-8 px-4 h-screen bg-zinc-100" />
 
-    <HeaderView />
 
-  <RouterView />
+        <RouterView />
+    </div>
+
 </template>
 
 <style scoped>

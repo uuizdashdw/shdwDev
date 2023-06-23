@@ -1,7 +1,6 @@
 <template>
-<div>
-    HOMELAYOUT
-</div>
+    <router-view />
+
 </template>
 
 <script>
