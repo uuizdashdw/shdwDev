@@ -1,11 +1,10 @@
 <template>
-    <router-view class="p-8 pt-[10.5rem]" />
-
+    <router-view />
 </template>
 
 <script>
 export default {
-    name: "HomeLayout"
+    name: "CategoryLayout"
 }
 </script>
 

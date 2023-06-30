@@ -2,7 +2,9 @@
     <aside class="flex flex-col">
 
         <div class="mb-8 text-center">
-            <div class="w-24 h-24 rounded-full bg-black mx-auto text-white mb-4">logo</div>
+            <router-link to="/home">
+                <div class="w-24 h-24 rounded-full bg-black mx-auto text-white mb-4">logo</div>
+            </router-link>
             <h2>title</h2>
             <p>name</p>
         </div>
@@ -159,6 +161,13 @@ export default {
                             parentTitleCode: "FR20230623",
                             contentCount: 0,
                         },
+                        {
+                            id: 4,
+                            title: "Node.js",
+                            titleCode: "NO20230630",
+                            parentTitleCode: "FR20230623",
+                            contentCount: 0,
+                        }
                     ]
                 },
                 {

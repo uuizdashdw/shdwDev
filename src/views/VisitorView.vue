@@ -1,11 +1,12 @@
 <template>
-    <router-view class="p-8 pt-[10.5rem]" />
-
+    <div class="p-8 w-full">
+        방명록
+    </div>
 </template>
 
 <script>
 export default {
-    name: "HomeLayout"
+    name: "VisitorView"
 }
 </script>
 
