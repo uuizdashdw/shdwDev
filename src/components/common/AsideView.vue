@@ -29,14 +29,29 @@
             <ul class="flex flex-col">
                 <li v-for="(item, index) in categoryList"
                     :key="item.id" class="mb-2">
-                    <span class="cursor-pointer inline-block mb-2"
-                          @click="item.subItemShow = !item.subItemShow">{{ item.title }} &nbsp;({{item.contentCount}})</span>
-                    <ul v-if="item.subItemShow">
-                        <li v-for="(subItem, index) in item.isSubItems"
-                            :key="subItem.id" class="mb-2 last:mb-0">
-                            <span class="text-sm">{{ subItem.title }} &nbsp;({{subItem.contentCount}})</span>
-                        </li>
-                    </ul>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="cursor-pointer inline-block"
+                              @click="isSubitemShow(item)">{{ item.title }} &nbsp;({{item.contentCount}})</span>
+                        <svg v-if="item.isSubItems.length !== 0"
+                             xmlns="http://www.w3.org/2000/svg"
+                             class="transition-all duration-[.3s] ease-linear"
+                             :class="{ 'rotate-180' : item.subItemShow === true}"
+                             width="10"
+                             height="10"
+                             viewBox="0 0 10 10">
+                            <path fill="black"
+                                  d="M0 0 L10 0 L5 10 Z" />
+                        </svg>
+                    </div>
+                    <Transition name="asideFade">
+                        <ul v-show="item.subItemShow"
+                            class="pl-2">
+                            <li v-for="(subItem, index) in item.isSubItems"
+                                :key="subItem.id" class="mb-2 last:mb-0">
+                                <span class="text-sm">{{ subItem.title }} &nbsp;({{subItem.contentCount}})</span>
+                            </li>
+                        </ul>
+                    </Transition>
                 </li>
             </ul>
         </div>
@@ -208,65 +223,30 @@ export default {
 
         },
 
-        getWeatherInformation(){
-            const API_KEY = "1f0bf0a5e0f85e7b95776b8175a37cc6";
-            const COORDS = 'coords';
-
-            const getWeather = (lat, lon) => {
-                fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${API_KEY}`)
-            }
-
-            const saveCoords = (coordsObj) => {
-                localStorage.setItem(COORDS, JSON.stringify(coordsObj))
-            }
-
-            const handleGeoSuccess = (position) => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                const coordsObj = {
-                    latitude,
-                    longitude
-                };
-
-                saveCoords(coordsObj);
-                getWeather(latitude, longitude);
-            }
-
-            const handleGeoError = () => {
-                console.log("CANT ACCESS GEO LOCATION");
-            }
-
-            const askForCoords = () => {
-                navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError)
-            }
-
-            const loadCoords = () => {
-                const loadedCoords = localStorage.getItem(COORDS);
-                if(loadedCoords === null){
-                    askForCoords();
-                } else {
-                    const parsedCoords = JSON.parse(loadedCoords);
-                    console.log(parsedCoords);
-                    getWeather(parsedCoords.latitude, parsedCoords.longitude);
-                }
-            }
-
-            const init = () => {
-                loadCoords();
-            }
-
-            init();
-
+        isSubitemShow(item){
+            item.subItemShow = !item.subItemShow;
         }
     },
 
     mounted() {
-        this.getWeatherInformation();
+
         this.isCategoryListItemsNumber();
     },
 }
 </script>
 
 <style scoped>
+.asideFade-enter-active {
+    transition: all .3s ease-out !important;
+}
 
+.asideFade-leave-active {
+    transition: all .3s ease-out !important;
+}
+
+.asideFade-enter-from,
+.asideFade-leave-to {
+    transform: translateX(20px) !important;
+    opacity: 0 !important;
+}
 </style>
