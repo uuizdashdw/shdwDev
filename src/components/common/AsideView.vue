@@ -1,5 +1,5 @@
 <template>
-    <aside class="flex flex-col">
+    <aside class="flex flex-col z-50">
 
         <div class="mb-8 text-center">
             <router-link to="/home">
@@ -225,11 +225,28 @@ export default {
 
         isSubitemShow(item){
             item.subItemShow = !item.subItemShow;
+        },
+
+        isEmitterData(){
+            console.log(this.categoryList);
+
+            setTimeout(() => {
+                if(this.categoryList.length > 0) {
+                    this.emitter.emit("category", this.categoryList);
+                    console.log("this.categoryList in Emitt", this.categoryList);
+                } else {
+                    console.log("에러zz");
+                }
+            },200)
         }
     },
 
-    mounted() {
+    created() {
 
+    },
+
+    mounted() {
+        this.isEmitterData();
         this.isCategoryListItemsNumber();
     },
 }

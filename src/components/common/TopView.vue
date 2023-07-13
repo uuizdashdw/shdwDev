@@ -1,5 +1,5 @@
 <template>
-    <header class="fixed left-1/2 -translate-x-1/2 w-full border-b bg-white">
+    <header class="w-[89%] mx-auto mr-0 fixed right-0 z-40 border-b bg-white">
         <h1 class="text-3xl text-center py-8">
             춤추는 프론트엔드<span class="text-lg">(비열함)</span>
         </h1>
@@ -25,7 +25,7 @@
             </li>
         </ul>
 
-        <div class="text-black absolute top-10 right-10">
+        <div class="text-black absolute top-8 right-8">
             <span v-html="nowYear+'.'+ nowMonth + '.' + nowDay + '('+dayOfWeek+')'"
                   class="text-black mr-2"></span>
             <span ref="nowLiveTime"></span>

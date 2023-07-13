@@ -17,7 +17,7 @@ export default [
                 path: '/category',
                 name: 'CategoryView',
                 component: CategoryView,
-            }
+            },
         ]
     }
 ]
