@@ -70,138 +70,7 @@ export default {
         return {
             todayVisitorsCount: 0,
             yesterdayVisitorCount: 0,
-
-            categoryList:[
-                {
-                    id: 1,
-                    title: "HTML",
-                    titleCode: "HT20230623",
-                    contentCount: 0,
-                    subItemShow: false,
-                    isSubItems: [],
-                },
-                {
-                    id: 2,
-                    title: "CSS",
-                    titleCode: "CS20230623",
-                    contentCount: 0,
-                    subItemShow: false,
-                    isSubItems: [
-                        {
-                            id: 1,
-                            title: "CSS3",
-                            titleCode: "CT20230623",
-                            parentTitleCode: "CS20230623",
-                            contentCount: 0,
-                        },
-                        {
-                            id: 2,
-                            title: "TAILWIND CSS",
-                            titleCode: "TC20230623",
-                            parentTitleCode: "CS20230623",
-                            contentCount: 0,
-                        },
-                        {
-                            id: 3,
-                            title: "SCSS",
-                            titleCode: "SC20230623",
-                            parentTitleCode: "CS20230623",
-                            contentCount: 0,
-                        },
-                        {
-                            id: 4,
-                            title: "SASS",
-                            titleCode: "SA20230623",
-                            parentTitleCode: "CS20230623",
-                            contentCount: 0,
-                        }
-                    ]
-                },
-                {
-                    id: 3,
-                    title: "JAVASCRIPT",
-                    titleCode: "JA20230623",
-                    contentCount: 0,
-                    subItemShow: false,
-                    isSubItems: [
-                        {
-                            id: 1,
-                            title: "ES5",
-                            titleCode: "ES520230623",
-                            parentTitleCode: "JA20230623",
-                            contentCount: 0,
-                        },
-                        {
-                            id: 2,
-                            title: "ES6",
-                            titleCode: "ES620230623",
-                            parentTitleCode: "JA20230623",
-                            contentCount: 0,
-                        }
-                    ]
-                },
-                {
-                    id: 4,
-                    title: "TYPESCRIPT",
-                    titleCode: "JA20230623",
-                    contentCount: 0,
-                    subItemShow: false,
-                    isSubItems: [],
-                },
-                {
-                    id: 5,
-                    title: "FRAMEWORK",
-                    titleCode: "FR20230623",
-                    contentCount: 0,
-                    subItemShow: false,
-                    isSubItems: [
-                        {
-                            id: 1,
-                            title: "Vue.js",
-                            titleCode: "VU20230623",
-                            parentTitleCode: "FR20230623",
-                            contentCount: 0,
-                        },
-                        {
-                            id: 2,
-                            title: "React.js",
-                            titleCode: "RE20230623",
-                            parentTitleCode: "FR20230623",
-                            contentCount: 0,
-                        },
-                        {
-                            id: 3,
-                            title: "Svelte.js",
-                            titleCode: "SV20230623",
-                            parentTitleCode: "FR20230623",
-                            contentCount: 0,
-                        },
-                        {
-                            id: 4,
-                            title: "Node.js",
-                            titleCode: "NO20230630",
-                            parentTitleCode: "FR20230623",
-                            contentCount: 0,
-                        }
-                    ]
-                },
-                {
-                    id: 6,
-                    title: "CS",
-                    titleCode: "CSE20230623",
-                    contentCount: 0,
-                    subItemShow: false,
-                    isSubItems: [],
-                },
-                {
-                    id: 7,
-                    title: "THEORY",
-                    titleCode: "TH20230623",
-                    contentCount: 0,
-                    subItemShow: false,
-                    isSubItems: [],
-                }
-            ],
+            categoryList: [],
             allContentCount: 0,
         }
     },
@@ -226,28 +95,23 @@ export default {
         isSubitemShow(item){
             item.subItemShow = !item.subItemShow;
         },
-
-        isEmitterData(){
-            console.log(this.categoryList);
-
-            setTimeout(() => {
-                if(this.categoryList.length > 0) {
-                    this.emitter.emit("category", this.categoryList);
-                    console.log("this.categoryList in Emitt", this.categoryList);
-                } else {
-                    console.log("에러zz");
-                }
-            },200)
-        }
     },
 
     created() {
 
     },
 
+    props: {
+        asideProp: {
+          type: Array,
+            required: true,
+      }
+    },
+
     mounted() {
-        this.isEmitterData();
         this.isCategoryListItemsNumber();
+
+        this.categoryList = this.$props.asideProp;
     },
 }
 </script>

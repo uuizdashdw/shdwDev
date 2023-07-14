@@ -5,23 +5,13 @@
         </h1>
 
         <ul class="flex justify-center gap-32">
-            <li :class="{ 'border-b-4 border-[#1ABC9C]' : this.$route.path === '/home' }">
-                <router-link id="home"
-                             to="/home"
-                             class="relative inline-block rounded z-10 overflow-hidden px-4 py-1"
-                >HOME</router-link>
-            </li>
-            <li :class="{ 'border-b-4 border-[#1ABC9C]' : this.$route.path === '/category' }">
-                <router-link id="category"
-                             to="/category"
-                             class="relative inline-block rounded z-10 overflow-hidden px-4 py-1"
-                >CATEGORY</router-link>
-            </li>
-            <li :class="{ 'border-b-4 border-[#1ABC9C]' : this.$route.path === '/visitor' }">
-                <router-link id="visitor"
-                             to="/visitor"
-                             class="relative inline-block rounded z-10 overflow-hidden px-4 py-1"
-                >VISITOR</router-link>
+            <li v-for="(item, index) in gnbList" :key="item.id"
+                :class="{ 'border-b-4 border-[#1ABC9C]' : this.$route.path === item.gnbPath }">
+                <router-link :id="item.gnbName"
+                             :to="item.gnbPath"
+                             class="relative inline-block rounded z-10 overflow-hidden px-4 py-1">
+                    {{ item.gnbName }}
+                </router-link>
             </li>
         </ul>
 
@@ -36,6 +26,12 @@
 <script>
 export default {
     name: "TopView",
+    props: {
+      topViewProp: {
+          type: Array,
+          required: true,
+      }
+    },
     data(){
         return{
             nowTotalTime: '',
@@ -47,9 +43,12 @@ export default {
             nowSecond: '',
             nowDate: '',
             dayOfWeek: '',
+
+            gnbList: [],
         }
     },
     mounted() {
+        this.gnbList = this.$props.topViewProp;
         this.isNowTime();
         setInterval(this.isNowTime, 1000);
     },
