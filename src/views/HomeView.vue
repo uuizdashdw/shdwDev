@@ -1,15 +1,6 @@
 <template>
 
     <div class="h-[984px] mb-8 flex flex-col justify-center">
-        <div class="mb-72">
-            <ul class="flex justify-center items-center gap-6">
-                <li v-for="item in categoryList" :key="item.id">
-                    #{{ item.title }}
-                </li>
-            </ul>
-
-            <p class="text-center text-lg">등을 공부하고 기록하고 있어요</p>
-        </div>
 
         <div class="text-center text-4xl mb-10">
             <h1 class="mb-2"
@@ -31,7 +22,6 @@
 
 </template>
 <script>
-import AOS from "aos";
 export default {
     name: "HomeView",
     props: {
@@ -50,7 +40,6 @@ export default {
 
     },
     mounted() {
-        AOS.init();
         this.categoryList = this.$props.mainProp;
 
     },

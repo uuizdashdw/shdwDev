@@ -20,6 +20,7 @@ import TopView from "@/components/common/TopView.vue";
 </template>
 
 <script>
+import AOS from 'aos';
 export default {
     name: "AppView",
     data() {
@@ -249,6 +250,7 @@ export default {
 
     mounted() {
         this.isMount = !this.isMount;
+        AOS.init();
     },
 
     methods: {

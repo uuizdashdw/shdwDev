@@ -1,12 +1,12 @@
 <template>
-    <div class="p-8 w-full h-full">
-        HTML view
+    <div>
+        JAVASCRIPT VIEW
     </div>
 </template>
 
 <script>
 export default {
-    name: "HtmlView"
+    name: "JavascriptView"
 }
 </script>
 

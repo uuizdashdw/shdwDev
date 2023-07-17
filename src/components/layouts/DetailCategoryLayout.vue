@@ -1,12 +1,10 @@
 <template>
-    <div class="p-8 w-full h-full">
-        HTML view
-    </div>
+    <router-view class="p-8 pt-[10.5rem]"/>
 </template>
 
 <script>
 export default {
-    name: "HtmlView"
+    name: "DetailCategoryView"
 }
 </script>
 

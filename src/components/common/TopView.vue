@@ -5,9 +5,10 @@
         </h1>
 
         <ul class="flex justify-center gap-32">
-            <li v-for="(item, index) in gnbList" :key="item.id"
-                :class="{ 'border-b-4 border-[#1ABC9C]' : this.$route.path === item.gnbPath }">
-                <router-link :id="item.gnbName"
+            <li v-for="(item, index) in gnbList"
+                :key="item.id"
+                :class="{ 'border-b-4 border-[#1ABC9C]' : this.$route.path.includes(item.gnbPath) }">
+                <router-link :id="item.gnbName.toLowerCase()"
                              :to="item.gnbPath"
                              class="relative inline-block rounded z-10 overflow-hidden px-4 py-1">
                     {{ item.gnbName }}

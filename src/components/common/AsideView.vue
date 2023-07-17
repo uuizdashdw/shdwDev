@@ -56,10 +56,6 @@
             </ul>
         </div>
 
-        <div>
-            오늘날씨
-        </div>
-
     </aside>
 </template>
 
