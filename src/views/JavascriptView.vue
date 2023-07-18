@@ -1,12 +1,20 @@
 <template>
-    <div>
-        JAVASCRIPT VIEW
+    <div class="p-8 w-full h-full">
+        <BackToCategory />
+        <div>
+            JAVASCRIPT VIEW
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "JavascriptView"
+    name: "JavascriptView",
+    data() {
+        return {
+
+        }
+    }
 }
 </script>
 

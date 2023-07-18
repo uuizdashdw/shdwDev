@@ -1,12 +1,18 @@
 <template>
     <div class="p-8 w-full h-full">
-        HTML view
+        <BackToCategory />
+        <div>Html View</div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "HtmlView"
+    name: "HtmlView",
+    data(){
+        return {
+
+        }
+    },
 }
 </script>
 

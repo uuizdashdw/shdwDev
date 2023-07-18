@@ -83,4 +83,5 @@ export default {
     color: #fff !important;
     font-weight: bold;
 }
+
 </style>

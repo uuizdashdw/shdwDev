@@ -20,5 +20,18 @@ app.use(router)
 
 import 'aos/dist/aos.css';
 
+import VueCookies from 'vue-cookies';
+app.use(VueCookies, {
+    expires: new Date(2030, 12, 31).toUTCString(),
+    path: "/",
+    domain: "",
+    secure: "",
+    sameSite: "none"
+});
+
+
+import BackToCategory from "@/components/BackToCategory.vue";
+app.component('BackToCategory', BackToCategory);
+
 
 app.mount('#app')

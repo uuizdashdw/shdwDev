@@ -1,12 +1,20 @@
 <template>
-    <div>
-        css VIew
+    <div class="p-8 w-full h-full">
+        <BackToCategory />
+        <div>
+            css VIew
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "CssView"
+    name: "CssView",
+    data() {
+        return {
+
+        }
+    }
 }
 </script>
 

@@ -1,12 +1,20 @@
 <template>
-    <div>
-        Theory VIEW
+    <div class="p-8 w-full h-full">
+        <BackToCategory />
+        <div>
+            Theory VIEW
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "TheoryView"
+    name: "TheoryView",
+    data(){
+        return {
+
+        }
+    }
 }
 </script>
 

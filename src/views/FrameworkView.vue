@@ -1,12 +1,20 @@
 <template>
-    <div>
-        FrameWork View
+    <div class="p-8 w-full h-full">
+        <BackToCategory />
+        <div>
+            FrameWork View
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "FrameworkView"
+    name: "FrameworkView",
+    data(){
+        return {
+
+        }
+    }
 }
 </script>
 
