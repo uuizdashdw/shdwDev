@@ -25,13 +25,23 @@ app.use(VueCookies, {
     expires: new Date(2030, 12, 31).toUTCString(),
     path: "/",
     domain: "",
-    secure: "",
+    secure: true,
     sameSite: "none"
 });
 
 
 import BackToCategory from "@/components/BackToCategory.vue";
 app.component('BackToCategory', BackToCategory);
+
+
+import VueSweetalert2 from "vue-sweetalert2";
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+const options = {
+    confirmButtonColor: '#1ABC9C',
+}
+
+app.use(VueSweetalert2, options);
 
 
 app.mount('#app')

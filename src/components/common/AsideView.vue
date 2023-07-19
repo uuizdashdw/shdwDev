@@ -99,9 +99,8 @@ export default {
 
     props: {
         asideProp: {
-          type: Array,
-            required: true,
-      }
+            type: Array,
+        }
     },
 
     mounted() {
