@@ -1,6 +1,6 @@
 <template>
-    <div class="p-8 w-full h-full">
-        <div class="container mx-auto h-[979px] flex justify-center">
+    <div class="p-8 w-full">
+        <div class="container mx-auto h-[972px] flex justify-center">
             <ul class="flex items-center justify-center gap-16">
                 <li v-for="(item, index) in categoryList"
                     :key="index"

@@ -1,5 +1,6 @@
 <template>
-    <header class="w-[89%] mx-auto mr-0 fixed right-0 z-40 border-b bg-white">
+    <header class="w-[89%] mx-auto mr-0 right-0 z-40 border-b bg-white"
+            :class="{ 'fixed' : this.$route.path.includes('/category') === false }">
         <h1 class="text-3xl text-center py-8">
             춤추는 프론트엔드<span class="text-lg">(비열함)</span>
         </h1>

@@ -1,6 +1,6 @@
 <template>
 
-    <div class="h-[984px] mb-8 flex flex-col justify-center">
+    <div class="h-screen mb-8 flex flex-col justify-center">
 
         <div class="text-center text-4xl mb-10">
             <h1 class="mb-2"

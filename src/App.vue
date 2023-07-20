@@ -11,7 +11,7 @@ import TopView from "@/components/common/TopView.vue";
         <TopView :topViewProp="topViewProp" />
 
         <AsideView :asideProp="allProp"
-            class="fixed w-[260px] py-8 px-4 h-screen bg-zinc-100" />
+            class="fixed top-0 w-[260px] py-8 px-4 h-screen bg-zinc-100"/>
 
         <main class="w-[88.8%] mx-auto mr-0">
             <RouterView :mainProp="allProp" class="h-full"/>
@@ -273,6 +273,19 @@ export default {
 
 #appWrapper {
     animation: fade 2s forwards ease-out;
+}
+
+#appWrapper::-webkit-scrollbar {
+    width: 10px !important;
+}
+
+#appWrapper::-webkit-scrollbar-thumb {
+    background: rgba(26, 188, 156);
+    border-radius: 10px;
+}
+
+#appWrapper::-webkit-scrollbar-track {
+    background: rgba(26, 188, 156, .1);
 }
 
 @keyframes fade {

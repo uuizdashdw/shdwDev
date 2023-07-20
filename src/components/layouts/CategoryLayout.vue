@@ -1,5 +1,5 @@
 <template>
-    <router-view class="p-8 pt-[10.5rem]"/>
+    <router-view class="p-8"/>
 </template>
 
 <script>
