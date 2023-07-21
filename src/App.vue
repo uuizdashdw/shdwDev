@@ -275,19 +275,6 @@ export default {
     animation: fade 2s forwards ease-out;
 }
 
-#appWrapper::-webkit-scrollbar {
-    width: 10px !important;
-}
-
-#appWrapper::-webkit-scrollbar-thumb {
-    background: rgba(26, 188, 156);
-    border-radius: 10px;
-}
-
-#appWrapper::-webkit-scrollbar-track {
-    background: rgba(26, 188, 156, .1);
-}
-
 @keyframes fade {
     0% {
         opacity: 0;

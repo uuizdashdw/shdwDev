@@ -271,38 +271,45 @@ export default {
         isEditedComment(idx){
             let tmp = idx - 1;
 
-            this.$swal.fire({
-                title: '비밀번호를 입력해주세요',
-                input: 'text',
-                inputAttributes: {
-                    autocapitalize: 'off',
-                },
-                showCancelButton: true,
-                confirmButtonText: '확인',
-                showLoaderOnConfirm: true,
-                preConfirm: password =>  {
-                    if(password === data.comment[tmp].userPassword) {
-                        this.isShowCommentEdit = true;
+            if(this.isShowCommentEdit === false){
+                this.$swal.fire({
+                    title: '비밀번호를 입력해주세요',
+                    input: 'text',
+                    inputAttributes: {
+                        autocapitalize: 'off',
+                    },
+                    showCancelButton: true,
+                    confirmButtonText: '확인',
+                    showLoaderOnConfirm: true,
+                    preConfirm: password =>  {
+                        if(password === data.comment[tmp].userPassword) {
+                            this.isShowCommentEdit = true;
 
-                        data.comment[tmp].userName = this.isEditedUserName;
-                        data.comment[tmp].title = this.isEditedTitle;
-                        data.comment[tmp].context = this.isEditedContext;
+                            console.log(data.comment);
+                        } else {
+                            this.isShowCommentEdit = false;
+                            this.$swal.showValidationMessage('비밀번호가 틀렸습니다');
+                        }
+                    },
+                    allowOutsideClick: () => !this.$swal.isLoading()
+                })
+            } else {
+                if(this.isEditedUserName !== '' && this.isEditedTitle !== '' && this.isEditedContext !== ''){
+                    data.comment[tmp].userName = this.isEditedUserName;
+                    data.comment[tmp].title = this.isEditedTitle;
+                    data.comment[tmp].context = this.isEditedContext;
 
-                        console.log(data.comment);
-                    } else {
-                        this.$swal.showValidationMessage('비밀번호가 틀렸습니다');
-                    }
-                },
-                allowOutsideClick: () => !this.$swal.isLoading()
-            }).then((res) => {
-                if(res.isConfirmed) {
                     this.$swal.fire({
-                        title: '수정되었습니다',
+                        title: '수정 완료',
+                        text: '수정이 완료되었습니다!',
+                        confirmButtonText: '확인',
                     }).then((res) => {
                         res.isConfirmed ? this.$router.push('/home') : this.$router.push('/home');
                     })
+
                 }
-            })
+            }
+
         }
     }
 }
