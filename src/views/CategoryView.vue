@@ -1,20 +1,18 @@
 <template>
-    <div class="p-8 w-full">
-        <div class="container mx-auto h-[972px] flex justify-center">
-            <ul class="flex items-center justify-center gap-16">
-                <li v-for="(item, index) in categoryList"
-                    :key="index"
-                    data-aos="fade-up"
-                    data-aos-delay="500"
-                    data-aos-duration="1000">
-                    <router-link :to="`/category/detail/${item.title.toLowerCase()}`"
-                                 :id="item.title.toLowerCase()"
-                                 class="text-xl relative inline-block rounded z-10 overflow-hidden px-4 py-1">
-                        #{{ item.title }}
-                    </router-link>
-                </li>
-            </ul>
-        </div>
+    <div class="container mx-auto p-8 h-screen flex justify-center">
+        <ul class="flex items-center justify-center gap-16">
+            <li v-for="(item, index) in categoryList"
+                :key="index"
+                data-aos="fade-up"
+                data-aos-delay="500"
+                data-aos-duration="1000">
+                <router-link :to="`/category/detail/${item.title.toLowerCase()}`"
+                             :id="item.title.toLowerCase()"
+                             class="text-xl relative inline-block rounded z-10 overflow-hidden px-4 py-1">
+                    #{{ item.title }}
+                </router-link>
+            </li>
+        </ul>
     </div>
 </template>
 

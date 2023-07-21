@@ -5,8 +5,9 @@
             <router-link to="/home">
                 <div class="w-24 h-24 rounded-full bg-black mx-auto text-white mb-4">logo</div>
             </router-link>
-            <h2>title</h2>
-            <p>name</p>
+            <h2 class="mb-2">Wisdom in the SHADOW</h2>
+            <p>WIZ</p>
+            <p class="text-sm">( BBOY, FE Developer )</p>
         </div>
         <ul class="grid grid-cols-4 mb-12">
             <li class="col-span-2">
