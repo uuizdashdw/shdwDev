@@ -1,5 +1,6 @@
 <template>
-    <header class="w-[89%] mx-auto mr-0 fixed right-0 z-40 border-b bg-white">
+    <header class="w-[88.85%] mx-auto mr-0 right-0 z-40 border-b bg-white"
+            :class="{ 'fixed' : this.$route.path !== '/category' }">
         <h1 class="text-3xl text-center py-8">
             춤추는 프론트엔드<span class="text-lg">(비열함)</span>
         </h1>
@@ -85,7 +86,8 @@ export default {
             this.nowSecond.length === 1 ? this.nowSecond = '0' + this.nowSecond : this.nowSecond;
 
             this.$refs.nowLiveTime.innerText = `${this.nowHour}:${this.nowMinute}:${this.nowSecond}`;
-        }
+        },
+
     }
 }
 </script>

@@ -1,5 +1,6 @@
 <template>
-    <div class="container mx-auto p-8 h-screen flex justify-center">
+    <div class="container mx-auto p-8 flex justify-center"
+         :class="{ 'h-screen' : this.$route.path !== '/category' , 'h-full' : this.$route.path === '/category' }">
         <ul class="flex items-center justify-center gap-16">
             <li v-for="(item, index) in categoryList"
                 :key="index"
