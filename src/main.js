@@ -22,8 +22,8 @@ import 'aos/dist/aos.css';
 
 import VueCookies from 'vue-cookies';
 app.use(VueCookies, {
-    expires: new Date(2030, 12, 31).toUTCString(),
-    path: "/",
+    expires: '7d',
+    path: "/admin",
     domain: "",
     secure: true,
     sameSite: "none"

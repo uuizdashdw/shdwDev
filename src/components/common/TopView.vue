@@ -1,6 +1,5 @@
 <template>
-    <header class="w-[88.85%] mx-auto mr-0 right-0 z-40 border-b bg-white"
-            :class="{ 'fixed' : this.$route.path !== '/category' }">
+    <header class="w-[89.85%] mx-auto mr-0 fixed right-0 z-40 border-b bg-white">
         <h1 class="text-3xl text-center py-8">
             춤추는 프론트엔드<span class="text-lg">(비열함)</span>
         </h1>
@@ -57,37 +56,38 @@ export default {
 
     methods: {
         isNowTime(){
-            this.nowTotalTime = new Date();
-            this.nowYear = this.nowTotalTime.getFullYear();
-            this.nowMonth = this.nowTotalTime.getMonth();
-            this.nowDay = this.nowTotalTime.getDate();
-            this.nowHour = this.nowTotalTime.getHours();
-            this.nowMinute = this.nowTotalTime.getMinutes();
-            this.nowSecond = this.nowTotalTime.getSeconds();
+            if(this.$route.path !== '/admin'){
+                this.nowTotalTime = new Date();
+                this.nowYear = this.nowTotalTime.getFullYear();
+                this.nowMonth = this.nowTotalTime.getMonth();
+                this.nowDay = this.nowTotalTime.getDate();
+                this.nowHour = this.nowTotalTime.getHours();
+                this.nowMinute = this.nowTotalTime.getMinutes();
+                this.nowSecond = this.nowTotalTime.getSeconds();
 
-            this.nowMonth = this.nowMonth.toString();
-            this.nowMonth.length === 1 ? this.nowMonth = '0'+this.nowMonth : this.nowMonth;
+                this.nowMonth = this.nowMonth.toString();
+                this.nowMonth.length === 1 ? this.nowMonth = '0'+this.nowMonth : this.nowMonth;
 
-            let newDay = new Date().toDateString();
-            const getNewDate = days => {
-                const week = ['일','월','화','수','목','금','토'];
-                this.dayOfWeek = week[new Date(days).getDay()];
-                return this.dayOfWeek;
+                let newDay = new Date().toDateString();
+                const getNewDate = days => {
+                    const week = ['일','월','화','수','목','금','토'];
+                    this.dayOfWeek = week[new Date(days).getDay()];
+                    return this.dayOfWeek;
+                }
+
+                getNewDate(newDay);
+
+                this.nowHour = this.nowHour.toString();
+                this.nowMinute = this.nowMinute.toString();
+                this.nowSecond = this.nowSecond.toString();
+
+                this.nowHour.length === 1 ? this.nowHour = '0' + this.nowHour : this.nowHour;
+                this.nowMinute.length === 1 ? this.nowMinute = '0' + this.nowMinute : this.nowMinute;
+                this.nowSecond.length === 1 ? this.nowSecond = '0' + this.nowSecond : this.nowSecond;
+
+                this.$refs.nowLiveTime.innerText = `${this.nowHour}:${this.nowMinute}:${this.nowSecond}`;
             }
-
-            getNewDate(newDay);
-
-            this.nowHour = this.nowHour.toString();
-            this.nowMinute = this.nowMinute.toString();
-            this.nowSecond = this.nowSecond.toString();
-
-            this.nowHour.length === 1 ? this.nowHour = '0' + this.nowHour : this.nowHour;
-            this.nowMinute.length === 1 ? this.nowMinute = '0' + this.nowMinute : this.nowMinute;
-            this.nowSecond.length === 1 ? this.nowSecond = '0' + this.nowSecond : this.nowSecond;
-
-            this.$refs.nowLiveTime.innerText = `${this.nowHour}:${this.nowMinute}:${this.nowSecond}`;
-        },
-
+        }
     }
 }
 </script>

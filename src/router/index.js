@@ -5,6 +5,8 @@ import Category from './routerCategory';
 import Visitor from './routerVisitor';
 // import DetailCategory from './routerDetailCategory';
 
+import Admin from './routerAdmin';
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -12,6 +14,7 @@ const router = createRouter({
       ...Category,
       ...Visitor,
       // ...DetailCategory,
+      ...Admin,
   ]
 })
 

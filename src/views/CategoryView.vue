@@ -1,11 +1,16 @@
 <template>
-    <div class="container mx-auto p-8 flex justify-center"
-         :class="{ 'h-screen' : this.$route.path !== '/category' , 'h-full' : this.$route.path === '/category' }">
+    <div class="container mx-auto p-8 flex flex-col items-center justify-center h-screen">
+        <p class="text-2xl mb-10"
+           data-aos="fade-up"
+           data-aos-delay="0"
+           data-aos-duration="1000">
+            보고싶은 항목을 선택해보세요!
+        </p>
         <ul class="flex items-center justify-center gap-16">
             <li v-for="(item, index) in categoryList"
                 :key="index"
                 data-aos="fade-up"
-                data-aos-delay="500"
+                data-aos-delay="1000"
                 data-aos-duration="1000">
                 <router-link :to="`/category/detail/${item.title.toLowerCase()}`"
                              :id="item.title.toLowerCase()"
