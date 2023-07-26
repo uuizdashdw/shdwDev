@@ -1,12 +1,20 @@
 <template>
-    <OnRightSide class="w-[300px] fixed right-0 h-screen transition-all duration-[.3s] ease-in-out bg-white p-4"
-                 :class="{ '-right-full' : isToggleRightSide === false && isClosed === false , 'right-0' : isToggleRightSide === true && isClosed === true }"
+    <OnRightSide class="w-[300px] fixed h-screen transition-all duration-[.2s] ease-in bg-white p-4 z-[150]"
+                 :class="{ 'right-0' : isToggleRightSide , '-right-[300px]' :isToggleRightSide === false } "
                  @isClosed="val => this.isClosed = val"/>
-    <div class="h-screen transition-all duration-[.3s] ease-in-out"
-         :class="{ 'bg-slate-900/60' : isToggleRightSide === true }">
-        <header class="w-full p-10 border-b border-[#EEE] z-50">
+
+    <div class="h-screen fixed w-full inset-y-0 right-0 transition-all duration-[.2s] ease-in"
+         :class="{ 'opacity-0 -z-10' : isToggleRightSide === false , 'bg-slate-900/60' : isToggleRightSide }"
+         @click="testMethod">
+    </div>
+        <header class="w-full p-10 shadow-sm">
             <ul class="flex justify-between">
-                <li>오늘도 비열하게 잘하자</li>
+                <li>
+                    <h1>Wiz The Shadow</h1>
+                </li>
+                <li>
+                    <h1>오늘도 비열하게 잘하자</h1>
+                </li>
                 <li class="flex items-center justify-center gap-5">
                     <!-- Notification -->
                     <button class="flex items-center">
@@ -51,7 +59,7 @@
             <div class="container mx-auto">
                 <ul>
                     <li>
-                        <ul class="flex items-center gap-10">
+                        <ul class="flex items-center justify-center gap-10">
                             <li>총 방문자 수 : {{ isTodayVisit + isYesterdayVisit }}</li>
                             <li>오늘 방문자 수 : {{ isTodayVisit }}</li>
                             <li>어제 방문자 수 : {{ isYesterdayVisit }}</li>
@@ -60,7 +68,6 @@
                 </ul>
             </div>
         </main>
-    </div>
 </template>
 
 <script>
@@ -70,10 +77,10 @@ export default {
     components: {OnRightSide},
     watch: {
       isClosed(){
-          if(this.isClosed){
-              this.isClosed = false;
-              this.isToggleRightSide = false;
-          }
+          this.isToggleRightSide = !this.isToggleRightSide;
+          this.isActiveDialog = !this.isActiveDialog;
+
+          console.log("ㅅㅂㅈㅅㅂㅈㅅ", this.isActiveDialog);
       }
     },
     data(){
@@ -84,15 +91,21 @@ export default {
 
             isToggleRightSide: false,
             isClosed: false,
+            isActiveDialog: false,
         }
     },
 
     mounted() {
-
+        console.log(this.isToggleRightSide);
     },
 
     methods: {
-
+        testMethod(){
+            if(this.isActiveDialog === false && this.isToggleRightSide === true) {
+                this.isToggleRightSide = !this.isToggleRightSide;
+                console.log("ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ");
+            }
+        },
     }
 }
 </script>

@@ -9,8 +9,8 @@ import TopView from "@/components/common/TopView.vue";
 
     <div id="appWrapper"
          v-if="this.$route.path !== '/admin'">
-        <div class="w-full bg-[#CCC] fixed z-[99999]">
-            <div class="w-0 bg-[#1ABC9C]"
+        <div class="w-full h-1 bg-[#CCC] fixed z-[99999]">
+            <div class="w-0 h-1 bg-[#1ABC9C]"
                  ref="progressBar"></div>
         </div>
         <TopView :topViewProp="topViewProp" />
