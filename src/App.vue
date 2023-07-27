@@ -8,9 +8,10 @@ import TopView from "@/components/common/TopView.vue";
 <template>
 
     <div id="appWrapper"
-         v-if="this.$route.path !== '/admin'">
+         v-if="this.$route.path.includes('/admin') === false">
         <div class="w-full h-1 bg-[#CCC] fixed z-[99999]">
             <div class="w-0 h-1 bg-[#1ABC9C]"
+                 :class="{ 'transition-all duration-[1s] ease-out' : this.$route.path !== '/home' }"
                  ref="progressBar"></div>
         </div>
         <TopView :topViewProp="topViewProp" />
@@ -23,7 +24,7 @@ import TopView from "@/components/common/TopView.vue";
         </main>
     </div>
     <div v-else>
-        <router-view/>
+        <router-view :mainProp="allProp"/>
     </div>
 </template>
 
@@ -53,7 +54,10 @@ export default {
                 gnbName: "VISITOR",
                 gnbPath: '/visitor',
             }
-        ]
+        ],
+
+            isAdminRoutesList:[],
+
         }
     },
 
@@ -70,24 +74,19 @@ export default {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             let scrolled = (winScroll / height) * 100;
-            this.$refs.progressBar.style.width = scrolled + '%';
-        }
+
+            if(this.$route.path === '/home'){
+                this.$refs.progressBar.style.width = scrolled + '%';
+            } else {
+                this.$refs.progressBar.style.width = 0 + '%';
+            }
+        },
     }
 }
 
 </script>
 
 <style scoped>
-.main-enter-active,
-.main-leave-active {
-    transition: opacity 2s ease !important;
-}
-
-.main-enter-from,
-.main-leave-to {
-    opacity: 0 !important;
-}
-
 #appWrapper {
     animation: fade 2s forwards ease-out;
 }

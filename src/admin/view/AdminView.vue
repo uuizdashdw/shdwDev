@@ -9,6 +9,7 @@
 <script>
 import AdminRequest from "@/admin/component/AdminRequest.vue";
 import AdminResponse from "@/admin/component/AdminResponse.vue";
+
 export default {
     name: "AdminView",
     components: {AdminResponse, AdminRequest},
@@ -17,6 +18,8 @@ export default {
             isEnterAdmin: '',
         }
     },
+
+
 
     mounted() {
 

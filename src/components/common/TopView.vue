@@ -56,7 +56,7 @@ export default {
 
     methods: {
         isNowTime(){
-            if(this.$route.path !== '/admin'){
+            if(this.$route.path.includes('/admin') === false){
                 this.nowTotalTime = new Date();
                 this.nowYear = this.nowTotalTime.getFullYear();
                 this.nowMonth = this.nowTotalTime.getMonth();

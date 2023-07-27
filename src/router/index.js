@@ -19,3 +19,15 @@ const router = createRouter({
 })
 
 export default router
+
+router.beforeEach(async (to) => {
+    const adminPage = ['/admin','/admin/html','/admin/css','/admin/javascript','/admin/typescript','/admin/framework','/admin/cs','/admin/theory'];
+
+    const adminRequired = adminPage.includes(to.path);
+
+    const admin = document.cookie.includes('adminId');
+
+    if(adminRequired && admin === false) {
+        return '/home';
+    }
+})
